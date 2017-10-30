@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Posts About Travel</h2>
+
+  <ul *ngFor="let post of travelPostList">
+    <h4> {{post.headline}} <button class="btn" (click)="viewButtonClicked(post)">View Post</button></h4>
+    <div *ngIf="post.showBody">
+      <p> {{post.body}} </p>
+      <button class="btn" (click)="hideButtonClicked(post)">Hide</button>
+    </div>
+  </ul>
+
+  <div class="new-post-form">
+    <div class="form-group">
+      <label>Header:</label>
+      <input #headline class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Body:</label>
+      <textarea #body class="form-control"></textarea>
+    </div>
+    <button class="btn" (click)="submitForm(headline.value, body.value); headline.value=''; body.value='';">Submit</button>
+  </div>
+</div>
