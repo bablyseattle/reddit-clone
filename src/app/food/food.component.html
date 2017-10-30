@@ -2,8 +2,11 @@
   <h2>Posts About Food</h2>
 
   <ul *ngFor="let post of foodPostList">
-    <h4> {{post.headline}} </h4>
-    <p> {{post.body}} </p>
+    <h4> {{post.headline}} <button class="btn" (click)="viewButtonClicked(post)">View Post</button></h4>
+    <div *ngIf="post.showBody">
+      <p> {{post.body}} </p>
+      <button class="btn" (click)="hideButtonClicked(post)">Hide</button>
+    </div>
   </ul>
 
   <div class="new-post-form">
@@ -15,6 +18,6 @@
       <label>Body:</label>
       <textarea #body class="form-control"></textarea>
     </div>
-    <button class="btn" (click)="submitForm(headline.value, body.value);">Submit</button>
+    <button class="btn" (click)="submitForm(headline.value, body.value); headline.value=''; body.value='';">Submit</button>
   </div>
 </div>

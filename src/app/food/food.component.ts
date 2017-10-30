@@ -15,4 +15,12 @@ export class FoodComponent {
     this.foodPostList.push(newPost);
   }
 
+  viewButtonClicked(clickedPost) {
+    clickedPost.showBody = true;
+  }
+
+  hideButtonClicked(clickedPost) {
+    clickedPost.showBody = false;
+  }
+
 }
