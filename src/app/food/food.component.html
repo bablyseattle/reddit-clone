@@ -7,7 +7,19 @@
       <p> {{post.body}} </p>
       <button class="btn" (click)="hideButtonClicked(post)">Hide</button>
     </div>
+    <button class="btn-info" (click)="editPost(post)">Edit Post</button>
   </ul>
+
+  <div *ngIf ="selectedPost">
+    <div class="form-group">
+      <label>Header:</label>
+      <input [(ngModel)]="selectedPost.headline" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Body:</label>
+      <textarea [(ngModel)]="selectedPost.body" class="form-control"></textarea>
+    </div>
+  </div>
 
   <div class="new-post-form">
     <div class="form-group">

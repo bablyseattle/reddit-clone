@@ -9,6 +9,7 @@ import { Post } from './../post.model';
 export class FoodComponent {
 
   foodPostList: Post[] = [ ];
+  selectedPost: Post = null;
 
   submitForm(headline: string, body: string) {
     var newPost: Post = new Post(headline, body);
@@ -21,6 +22,10 @@ export class FoodComponent {
 
   hideButtonClicked(clickedPost) {
     clickedPost.showBody = false;
+  }
+
+  editPost(clickedPost){
+    this.selectedPost = clickedPost;
   }
 
 }
